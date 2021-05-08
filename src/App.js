@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Container from "@material-ui/core/Container";
+import { makeStyles } from "@material-ui/core/styles";
+import clockImage from "./images/clock.jpg";
+import Counter from "./components/Counter";
 
-function App() {
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100vh",
+    backgroundImage: `url(${clockImage})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: false,
+  },
+}));
+
+const App = () => {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.container}>
+      <Container maxWidth="sm">
+        <Counter />
+      </Container>
     </div>
   );
-}
+};
 
 export default App;
